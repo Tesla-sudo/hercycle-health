@@ -43,6 +43,7 @@ const totalMembers = 1820;
 export default function CommunityPage() {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
+  const [activeTopic, setActiveTopic] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
