@@ -121,10 +121,20 @@ export default function CommunityPage() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {communityTopics.map((t) => (
-                    <Badge key={t.label} variant="secondary" className="cursor-pointer hover:bg-accent transition-colors">
-                      {t.label} <span className="ml-1 text-muted-foreground">({t.count})</span>
+                    <Badge
+                      key={t.label}
+                      variant={activeTopic === t.label ? "default" : "secondary"}
+                      className="cursor-pointer hover:bg-accent transition-colors"
+                      onClick={() => setActiveTopic(activeTopic === t.label ? null : t.label)}
+                    >
+                      {t.label} <span className="ml-1 opacity-70">({t.count})</span>
                     </Badge>
                   ))}
+                  {activeTopic && (
+                    <Badge variant="outline" className="cursor-pointer" onClick={() => setActiveTopic(null)}>
+                      Clear ✕
+                    </Badge>
+                  )}
                 </div>
               </CardContent>
             </Card>
