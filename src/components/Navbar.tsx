@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Dashboard", to: "/doctors" },
   { label: "Health Map", to: "/maps" },
   { label: "Insights", to: "/insights" },
+  { label: "Community", to: "/community" },
 ];
 
 export function Navbar() {
