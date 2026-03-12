@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const features = [
   { icon: Activity, title: "Period Tracking", desc: "Track your menstrual cycle with AI-powered predictions and personalized insights." },
