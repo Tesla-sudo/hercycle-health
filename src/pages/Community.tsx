@@ -183,7 +183,7 @@ export default function CommunityPage() {
                   <div className="flex-1 h-px bg-border" />
                 </div>
 
-                {messages.map((msg) => {
+                {messages.filter((m) => !activeTopic || m.topic === activeTopic || m.userId === "HC-YOU").map((msg) => {
                   const isYou = msg.userId === "HC-YOU";
                   return (
                     <motion.div
