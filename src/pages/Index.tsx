@@ -20,12 +20,19 @@ const stats = [
   { value: "50+", label: "Clinics Connected", icon: Building2 },
 ];
 
-const chatMessages = [
-  { from: "user", text: "My period has been irregular for 3 months." },
-  { from: "bot", text: "I understand your concern. Irregular cycles can happen due to stress, hormonal shifts, or lifestyle changes. Let's track it together — can you tell me the date of your last period?" },
-  { from: "user", text: "It was about 6 weeks ago." },
-  { from: "bot", text: "That's a cycle length of about 42 days. I'll flag this for monitoring. Based on your pattern, I'd recommend consulting a gynecologist. Shall I find one near you?" },
+const defaultChatMessages = [
+  { from: "bot", text: "Hi! I'm the HerCycle health assistant 💜 Ask me anything about menstrual health, cycle tracking, or symptoms." },
 ];
+
+const botResponses: Record<string, string> = {
+  irregular: "Irregular cycles can happen due to stress, hormonal shifts, or lifestyle changes. If your cycle is consistently longer than 38 days or shorter than 21, I'd recommend consulting a gynecologist. Want me to help you track it?",
+  cramps: "Menstrual cramps are very common. Try a warm compress, gentle exercise, or ginger tea. If cramps are severe and interfere with daily life, it could indicate endometriosis — please see a doctor.",
+  bleeding: "Heavy bleeding (soaking through a pad/tampon every hour) may indicate hormonal imbalance or fibroids. Track the number of pads you use and consult a healthcare provider if it persists.",
+  pcos: "PCOS affects about 1 in 10 women. Common signs include irregular periods, acne, weight gain, and excess hair growth. Early diagnosis helps manage symptoms effectively.",
+  menopause: "Menopause typically occurs between ages 45-55. Common symptoms include hot flashes, mood changes, and sleep disturbances. Hormone therapy and lifestyle changes can help manage the transition.",
+  track: "I can help you track your cycle! Simply tell me the first day of your last period and your typical cycle length, and I'll set up personalized reminders and predictions for you.",
+  default: "That's a great question! Based on our health data, I'd recommend tracking your symptoms consistently. Would you like to know more about period tracking, common symptoms, or when to see a doctor?",
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
