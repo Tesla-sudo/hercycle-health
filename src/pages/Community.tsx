@@ -16,6 +16,7 @@ interface Message {
   time: string;
   likes: number;
   liked: boolean;
+  topic?: string;
 }
 
 const initialMessages: Message[] = [
