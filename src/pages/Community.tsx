@@ -20,14 +20,14 @@ interface Message {
 }
 
 const initialMessages: Message[] = [
-  { id: 1, userId: "HC-4821", displayName: "Amani", avatar: "🌸", text: "Has anyone else experienced really bad cramps during their first day? I feel like mine have gotten worse this year.", time: "10:32 AM", likes: 5, liked: false },
-  { id: 2, userId: "HC-7390", displayName: "Wanjiku", avatar: "🌺", text: "Yes! I used to have mild ones but lately they've been intense. My doctor said it could be hormonal changes. Have you tried a warm compress? It helps me a lot.", time: "10:35 AM", likes: 8, liked: false },
-  { id: 3, userId: "HC-1156", displayName: "Aisha", avatar: "🌷", text: "Warm compress + ginger tea is my go-to combo 💛 Also tracking my cycle helped me prepare better for those days.", time: "10:38 AM", likes: 12, liked: false },
-  { id: 4, userId: "HC-5502", displayName: "Nyambura", avatar: "🌻", text: "I started tracking with HerCycle on WhatsApp and it actually predicted my heavy days accurately. Now I plan around them!", time: "10:42 AM", likes: 15, liked: false },
-  { id: 5, userId: "HC-2290", displayName: "Fatuma", avatar: "🌼", text: "Quick question — is it normal to have a 40+ day cycle? Mine has been around 42-45 days and I'm a bit worried.", time: "10:50 AM", likes: 3, liked: false },
-  { id: 6, userId: "HC-7390", displayName: "Wanjiku", avatar: "🌺", text: "It can vary! But if it's consistently that long, definitely worth mentioning to a gynecologist. Better safe than sorry 💜", time: "10:53 AM", likes: 7, liked: false },
-  { id: 7, userId: "HC-8834", displayName: "Zawadi", avatar: "🏵️", text: "I went through something similar. Turned out I had mild PCOS. Early detection made all the difference. Don't hesitate to get checked!", time: "10:58 AM", likes: 20, liked: false },
-  { id: 8, userId: "HC-1156", displayName: "Aisha", avatar: "🌷", text: "This group is so supportive 🥺 I love that we can talk about these things openly. Knowledge is power!", time: "11:02 AM", likes: 25, liked: false },
+  { id: 1, userId: "HC-4821", displayName: "Amani", avatar: "🌸", text: "Has anyone else experienced really bad cramps during their first day? I feel like mine have gotten worse this year.", time: "10:32 AM", likes: 5, liked: false, topic: "Period Tips" },
+  { id: 2, userId: "HC-7390", displayName: "Wanjiku", avatar: "🌺", text: "Yes! I used to have mild ones but lately they've been intense. My doctor said it could be hormonal changes. Have you tried a warm compress? It helps me a lot.", time: "10:35 AM", likes: 8, liked: false, topic: "Period Tips" },
+  { id: 3, userId: "HC-1156", displayName: "Aisha", avatar: "🌷", text: "Warm compress + ginger tea is my go-to combo 💛 Also tracking my cycle helped me prepare better for those days.", time: "10:38 AM", likes: 12, liked: false, topic: "Nutrition" },
+  { id: 4, userId: "HC-5502", displayName: "Nyambura", avatar: "🌻", text: "I started tracking with HerCycle on WhatsApp and it actually predicted my heavy days accurately. Now I plan around them!", time: "10:42 AM", likes: 15, liked: false, topic: "Period Tips" },
+  { id: 5, userId: "HC-2290", displayName: "Fatuma", avatar: "🌼", text: "Quick question — is it normal to have a 40+ day cycle? Mine has been around 42-45 days and I'm a bit worried.", time: "10:50 AM", likes: 3, liked: false, topic: "Fertility" },
+  { id: 6, userId: "HC-7390", displayName: "Wanjiku", avatar: "🌺", text: "It can vary! But if it's consistently that long, definitely worth mentioning to a gynecologist. Better safe than sorry 💜", time: "10:53 AM", likes: 7, liked: false, topic: "Fertility" },
+  { id: 7, userId: "HC-8834", displayName: "Zawadi", avatar: "🏵️", text: "I went through something similar. Turned out I had mild PCOS. Early detection made all the difference. Don't hesitate to get checked!", time: "10:58 AM", likes: 20, liked: false, topic: "Mental Health" },
+  { id: 8, userId: "HC-1156", displayName: "Aisha", avatar: "🌷", text: "This group is so supportive 🥺 I love that we can talk about these things openly. Knowledge is power!", time: "11:02 AM", likes: 25, liked: false, topic: "Mental Health" },
 ];
 
 const communityTopics = [
