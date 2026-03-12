@@ -176,14 +176,13 @@ export default function HomePage() {
                 <div className="text-xs text-primary-foreground/70">Online</div>
               </div>
             </div>
-            <CardContent className="p-4 space-y-3 bg-muted/30 min-h-[300px]">
+            <CardContent className="p-4 space-y-3 bg-muted/30 min-h-[300px] max-h-[350px] overflow-y-auto">
               {chatMessages.map((msg, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: msg.from === "user" ? 20 : -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.3 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
                   className={`flex ${msg.from === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm ${
@@ -195,16 +194,25 @@ export default function HomePage() {
                   </div>
                 </motion.div>
               ))}
+              {isTyping && (
+                <div className="flex justify-start">
+                  <div className="bg-card border border-border rounded-2xl rounded-bl-md px-4 py-2.5 text-sm text-muted-foreground">
+                    Typing<span className="animate-pulse">...</span>
+                  </div>
+                </div>
+              )}
+              <div ref={chatBottomRef} />
             </CardContent>
             <div className="p-3 border-t border-border flex gap-2">
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Type a message..."
+                onKeyDown={(e) => e.key === "Enter" && handleChatSend()}
+                placeholder="Try: irregular periods, cramps, PCOS..."
                 className="flex-1 bg-muted rounded-full px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
               />
-              <Button size="icon" className="gradient-primary rounded-full border-0 h-9 w-9">
+              <Button onClick={handleChatSend} size="icon" className="gradient-primary rounded-full border-0 h-9 w-9">
                 <Send size={16} className="text-primary-foreground" />
               </Button>
             </div>
