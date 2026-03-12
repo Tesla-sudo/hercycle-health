@@ -41,6 +41,37 @@ const fadeUp = {
 
 export default function HomePage() {
   const [inputValue, setInputValue] = useState("");
+  const [chatMessages, setChatMessages] = useState(defaultChatMessages);
+  const [isTyping, setIsTyping] = useState(false);
+  const chatBottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    chatBottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chatMessages, isTyping]);
+
+  const getBotResponse = (text: string): string => {
+    const lower = text.toLowerCase();
+    if (lower.includes("irregular")) return botResponses.irregular;
+    if (lower.includes("cramp")) return botResponses.cramps;
+    if (lower.includes("bleed") || lower.includes("heavy")) return botResponses.bleeding;
+    if (lower.includes("pcos")) return botResponses.pcos;
+    if (lower.includes("menopause")) return botResponses.menopause;
+    if (lower.includes("track")) return botResponses.track;
+    return botResponses.default;
+  };
+
+  const handleChatSend = () => {
+    if (!inputValue.trim()) return;
+    const userMsg = { from: "user", text: inputValue.trim() };
+    setChatMessages((prev) => [...prev, userMsg]);
+    const userText = inputValue.trim();
+    setInputValue("");
+    setIsTyping(true);
+    setTimeout(() => {
+      setIsTyping(false);
+      setChatMessages((prev) => [...prev, { from: "bot", text: getBotResponse(userText) }]);
+    }, 1200);
+  };
 
   return (
     <div className="min-h-screen bg-background">
